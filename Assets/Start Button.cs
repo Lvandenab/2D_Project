@@ -9,5 +9,6 @@ public class StartButton : MonoBehaviour
     public void OnClck()
     {
         SceneManager.LoadScene("Level1");
+        Time.timeScale = 1.0f;
     }
 }
