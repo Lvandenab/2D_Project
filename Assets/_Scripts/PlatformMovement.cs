@@ -7,6 +7,8 @@ public class PlatformMovement : MonoBehaviour
     public Transform[] waypoints;
     public float speed = 1.8f;
     public float tolerance = 0.05f;
+    public SpriteRenderer sr;
+    public Animator animator;
 
     private Vector3 currentTarget;
     private int nextTarget;
@@ -19,6 +21,8 @@ public class PlatformMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         currentTarget = waypoints[1].position;
         nextTarget = 0;
     }
@@ -40,10 +44,12 @@ public class PlatformMovement : MonoBehaviour
         if (nextTarget == 0)
         {            
             nextTarget = 1;
+            sr.flipX = true;
         }
         else
         {
             nextTarget = 0;
+            sr.flipX = false;
         }
     }
 }
